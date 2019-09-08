@@ -30,5 +30,8 @@ class TestSum(unittest.TestCase):
     def test_WhenMultiplesFs(self):
         self.assertEqual(checkout_solution.checkout('FFFFFFF'), 50)
 
+    def test_WhenMultiplesHs(self):
+        self.assertEqual(checkout_solution.checkout('HHHHHH'), 50)
+
 if __name__ == '__main__':
     unittest.main()
