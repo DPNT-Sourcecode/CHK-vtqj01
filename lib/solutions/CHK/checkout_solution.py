@@ -1,4 +1,4 @@
-
+# Dictionary with all the price mapping of items
 priceMap = {
         'A': {'SpecialOffer': 200, 'NormalOffer': 130, 'BasicPrice': 50},
         'B': {'NormalOffer': 45, 'BasicPrice': 30},
@@ -35,7 +35,7 @@ def checkout(skus):
     if skus:
         countMap = {}
 
-        # create map of counts of items
+        # create map of items count
         for char in skus:
             if char in priceMap.keys():
                 if countMap.get(char):
@@ -49,19 +49,19 @@ def checkout(skus):
         for key in countMap.keys():
             if key == 'E':
                 count = countMap[key]
-                itemWithOfferE = int(count / 2) if count >= 2 else 0
+                itemWithOfferE = int(count / 2)
                 if countMap.get('B'):
                     countMap['B'] = countMap['B'] - itemWithOfferE
 
             if key == 'N':
                 count = countMap[key]
-                itemWithOfferE = int(count / 3) if count >= 3 else 0
+                itemWithOfferE = int(count / 3)
                 if countMap.get('M'):
                     countMap['M'] = countMap['M'] - itemWithOfferE
 
             if key == 'R':
                 count = countMap[key]
-                itemWithOfferE = int(count / 3) if count >= 3 else 0
+                itemWithOfferE = int(count / 3)
                 if countMap.get('Q'):
                     countMap['Q'] = countMap['Q'] - itemWithOfferE
 
@@ -136,6 +136,7 @@ def checkout(skus):
                     totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
