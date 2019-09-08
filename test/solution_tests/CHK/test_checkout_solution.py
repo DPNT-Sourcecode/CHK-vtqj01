@@ -9,5 +9,14 @@ class TestSum(unittest.TestCase):
     def test_WithSingleOrdersForLimitedItems(self):
         self.assertEqual(checkout_solution.checkout('ABC'), 100)
 
+    def test_WithMultipleOrdersForAllItems(self):
+        self.assertEqual(checkout_solution.checkout('ABCDABCD'), 215)
+
+    def test_WithMultipleOrdersForAllItemsWhenAIsWithSpecialOffer(self):
+        self.assertEqual(checkout_solution.checkout('ABCDABCDA'), 245)
+
+    def test_WhenEmptyString(self):
+        self.assertEqual(checkout_solution.checkout(''), -1)
+
 if __name__ == '__main__':
     unittest.main()
