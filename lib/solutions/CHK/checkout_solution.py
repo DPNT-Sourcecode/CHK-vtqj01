@@ -45,7 +45,7 @@ def checkout(skus):
         if countOfEs:
             itemWithOffer = int(countOfEs / 2) if countOfEs >= 2 else 0
             itemWithOutOffer = countOfEs % 2
-            totalAmountToPay = totalAmountToPay + itemWithOffer * 30 + itemWithOutOffer * 40
+            totalAmountToPay = totalAmountToPay + itemWithOffer * 30 + countOfEs * 40
 
     return totalAmountToPay if totalAmountToPay else 0
 
