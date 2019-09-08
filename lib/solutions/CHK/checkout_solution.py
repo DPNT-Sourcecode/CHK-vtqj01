@@ -48,7 +48,7 @@ def checkout(skus):
             basicPrice = priceMap[key]['BasicPrice']
             normalOfferPrice = priceMap[key].get('NormalOffer')
             specialOfferPrice = priceMap[key].get('SpecialOffer')
-            if key in ['A', 'B', 'E', 'F', 'H']:
+            if key in ['A', 'B', 'E', 'F', 'H', 'K']:
                 if key == 'A':
                     flagForSpecialOffer = False
                     itemWithOutSpecialOffer = 0
@@ -68,7 +68,7 @@ def checkout(skus):
                     totalAmountToPay = totalAmountToPay + count * basicPrice
                     if countMap.get('B'):
                         countMap['B'] = countMap['B'] - itemWithOfferE
-                if key == 'B' and count > 0:
+                if key in ['B', 'K'] and count > 0:
                     itemWithOffer = int(count / 2) if count >= 2 else 0
                     itemWithOutOffer = count % 2
                     totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * basicPrice

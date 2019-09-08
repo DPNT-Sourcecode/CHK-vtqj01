@@ -31,7 +31,10 @@ class TestSum(unittest.TestCase):
         self.assertEqual(checkout_solution.checkout('FFFFFFF'), 50)
 
     def test_WhenMultiplesHs(self):
-        self.assertEqual(checkout_solution.checkout('HHHHHH'), 50)
+        self.assertEqual(checkout_solution.checkout('HHHHHHHHHHHHHHHH'), 135)
+
+    def test_WhenMultiplesKs(self):
+        self.assertEqual(checkout_solution.checkout('KK'), 135)
 
 if __name__ == '__main__':
     unittest.main()
