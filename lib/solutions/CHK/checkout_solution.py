@@ -34,6 +34,8 @@ def checkout(skus):
     totalAmountToPay = 0
     if skus:
         countMap = {}
+
+        # create map of counts of items
         for char in skus:
             if char in priceMap.keys():
                 if countMap.get(char):
@@ -43,6 +45,7 @@ def checkout(skus):
             else:
                 return -1
 
+        # apply special offer logic
         for key in countMap.keys():
             if key == 'E':
                 count = countMap[key]
@@ -62,7 +65,7 @@ def checkout(skus):
                 if countMap.get('Q'):
                     countMap['Q'] = countMap['Q'] - itemWithOfferE
 
-
+        # apply normal offer logic and calculate total amount of items.
         for key in countMap.keys():
             count = countMap[key]
             basicPrice = priceMap[key]['BasicPrice']
@@ -79,27 +82,27 @@ def checkout(skus):
                         flagForSpecialOffer = True
                     if flagForSpecialOffer:
                          count = itemWithOutSpecialOffer
-                    itemWithOffer = int(count / 3) if count >= 3 else 0
+                    itemWithOffer = int(count / 3)
                     itemWithOutOffer = count % 3
                     totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * specialOfferPrice + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
                 if key in ['B', 'K'] and count > 0:
-                    itemWithOffer = int(count / 2) if count >= 2 else 0
+                    itemWithOffer = int(count / 2)
                     itemWithOutOffer = count % 2
                     totalAmountToPay = totalAmountToPay + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
                 if key == 'F':
-                    itemWithOffer = int(count / 3) if count >= 3 else 0
+                    itemWithOffer = int(count / 3)
                     itemWithOutOffer = count % 3
                     totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * basicPrice + itemWithOutOffer * basicPrice
                 if key == 'U':
-                    itemWithOffer = int(count / 4) if count >= 4 else 0
+                    itemWithOffer = int(count / 4)
                     itemWithOutOffer = count % 4
                     totalAmountToPay = totalAmountToPay + itemWithOffer * 3 * basicPrice + itemWithOutOffer * basicPrice
                 if key == 'P':
-                    itemWithOffer = int(count / 5) if count >= 5 else 0
+                    itemWithOffer = int(count / 5)
                     itemWithOutOffer = count % 5
                     totalAmountToPay = totalAmountToPay + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
                 if key == 'Q':
-                    itemWithOffer = int(count / 3) if count >= 3 else 0
+                    itemWithOffer = int(count / 3)
                     itemWithOutOffer = count % 3
                     totalAmountToPay = totalAmountToPay + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
                 if key == 'H':
