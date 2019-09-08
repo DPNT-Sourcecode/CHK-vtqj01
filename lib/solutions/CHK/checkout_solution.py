@@ -141,39 +141,37 @@ def checkout(skus):
 
         itemWithOffer = int(groupSpecialLogicCount / 3)
         itemWithOutOffer = groupSpecialLogicCount % 3
+        avgPrice = 0
         if itemWithOutOffer == 2:
-            if count.get('X'):
-                if count.get('X') == 2:
-                    price1 = priceMap['X']['BasicPrice']
+            if countMap.get('X'):
+                if countMap.get('X') == 2:
+                    avgPrice = priceMap['X']['BasicPrice']
                 else:
                     price1 = priceMap['X']['BasicPrice']
-                    if any(count.get('S'), count.get('T'), count.get('Y')):
+                    if any(countMap.get('S'), countMap.get('T'), countMap.get('Y')):
                         price2 = priceMap['S']['BasicPrice']
-            elif any(count.get('S'), count.get('T'), count.get('Y')):
+                    avgPrice = (price1 + price2) / 2
+            elif any(countMap.get('S'), countMap.get('T'), countMap.get('Y')):
                 if (
-                        (count.get('S') and count.get('T')) or
-                        (count.get('S') and count.get('Y')) or
-                        (count.get('T') and count.get('Y')) or
+                        (countMap.get('S') and countMap.get('T')) or
+                        (countMap.get('S') and countMap.get('Y')) or
+                        (countMap.get('T') and countMap.get('Y'))
                 ):
-                    price1 = priceMap['S']['BasicPrice']
+                    avgPrice = priceMap['S']['BasicPrice']
                 else:
                     price1 = priceMap['S']['BasicPrice']
                     price2 = priceMap['Z']['BasicPrice']
+                    avgPrice = (price1 + price2) / 2
             else:
-                price1 = priceMap['Z']['BasicPrice']
+                avgPrice = priceMap['Z']['BasicPrice']
 
         elif itemWithOutOffer == 1:
-             price = count.get('X') or count.get('S') or count.get('T') or count.get('Y') or count.get('Z')
+             avgPrice = countMap.get('X') or countMap.get('S') or countMap.get('T') or countMap.get('Y') or countMap.get('Z')
 
-
-
-
-
-
-
-        totalAmountToPay = totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * 17
+        totalAmountToPay = totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * avgPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
