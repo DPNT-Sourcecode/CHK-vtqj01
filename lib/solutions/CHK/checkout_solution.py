@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    countOfAs, countOfBs, countOfCs, countOfDs, countOfEs = [0, 0, 0, 0, 0]
+    countOfAs, countOfBs, countOfCs, countOfDs, countOfEs, countOfFs = [0, 0, 0, 0, 0, 0]
     totalAmountToPay = 0
     priceMap = {
         'A': {'SpecialOffer': 200, 'NormalOffer': 130, 'BasicPrice': 50},
@@ -24,6 +24,8 @@ def checkout(skus):
                 countOfDs = countOfDs + 1
             elif char == 'E':
                 countOfEs = countOfEs + 1
+            elif char == 'F':
+                countOfFs = countOfFs + 1
             else:
                 return -1
 
@@ -55,6 +57,7 @@ def checkout(skus):
             totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * priceMap.get('B').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
