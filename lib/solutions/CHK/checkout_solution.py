@@ -66,6 +66,7 @@ def checkout(skus):
                     countMap['Q'] = countMap['Q'] - itemWithOfferE
 
         # apply normal offer logic and calculate total amount of items.
+        groupSpecialLogicCount = 0
         for key in countMap.keys():
             count = countMap[key]
             basicPrice = priceMap[key]['BasicPrice']
@@ -136,6 +137,7 @@ def checkout(skus):
                     totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
