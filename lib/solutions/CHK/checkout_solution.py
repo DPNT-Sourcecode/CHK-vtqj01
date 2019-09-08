@@ -25,15 +25,18 @@ def checkout(skus):
                 return -1
 
         if countOfAs:
-            itemWithOutOffer1 = 0
+            flagForSpecialOffer = False
+            itemWithOutSpecialOffer = 0
+            itemWithSpecialOfferOffer = 0
             if countOfAs >= 5:
-                itemWithOffer1 = int(countOfAs / 5)
-                itemWithOutOffer1 = countOfAs % 5
-            if itemWithOutOffer1:
-                 countOfAs = itemWithOutOffer1
+                itemWithSpecialOfferOffer = int(countOfAs / 5)
+                itemWithOutSpecialOffer = countOfAs % 5
+                flagForSpecialOffer = True
+            if flagForSpecialOffer:
+                 countOfAs = itemWithOutSpecialOffer
             itemWithOffer = int(countOfAs / 3) if countOfAs >= 3 else 0
             itemWithOutOffer = countOfAs % 3
-            totalAmountToPay = totalAmountToPay + itemWithOffer1 * 200 + itemWithOffer * 130 + itemWithOutOffer * 50
+            totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * 200 + itemWithOffer * 130 + itemWithOutOffer * 50
         if countOfBs:
             itemWithOffer = int(countOfBs / 2) if countOfBs >= 2 else 0
             itemWithOutOffer = countOfBs % 2
