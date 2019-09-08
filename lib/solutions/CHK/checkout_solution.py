@@ -10,7 +10,7 @@ priceMap = {
         'H': {'SpecialOffer': 80, 'NormalOffer': 45, 'BasicPrice': 10},
         'I': {'BasicPrice': 35},
         'J': {'BasicPrice': 60},
-        'K': {'NormalOffer': 150, 'BasicPrice': 70},
+        'K': {'NormalOffer': 120, 'BasicPrice': 70},
         'L': {'BasicPrice': 90},
         'M': {'BasicPrice': 15},
         'N': {'BasicPrice': 40},
@@ -136,6 +136,7 @@ def checkout(skus):
                     totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
