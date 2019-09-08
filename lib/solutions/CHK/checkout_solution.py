@@ -16,20 +16,19 @@ def checkout(skus):
                 countOfDs = countOfDs + 1
             else:
                 return -1
-        itemCount = {'A': countOfAs, 'B': countOfBs, 'C': countOfCs, 'D': countOfDs}
         totalAmountToPay = 0
         if countOfAs:
-            itemWithOffer = countOfAs / 3
+            itemWithOffer = countOfAs / 3 if countOfAs >= 3 else 0
             itemWithOutOffer = countOfAs % 3
-            totalAmountToPay = itemWithOffer * 130 + itemWithOutOffer * 50
+            totalAmountToPay = totalAmountToPay + itemWithOffer * 130 + itemWithOutOffer * 50
         if countOfBs:
-            itemWithOffer = countOfBs / 2
+            itemWithOffer = countOfBs / 2 if countOfAs >= 2 else 0
             itemWithOutOffer = countOfBs % 2
-            totalAmountToPay = itemWithOffer * 45 + itemWithOutOffer * 30
+            totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * 30
         if countOfCs:
-            totalAmountToPay = countOfCs * 20
+            totalAmountToPay = totalAmountToPay + countOfCs * 20
         if countOfDs:
-            totalAmountToPay = countOfDs * 15
+            totalAmountToPay = totalAmountToPay + countOfDs * 15
 
         return totalAmountToPay
 
