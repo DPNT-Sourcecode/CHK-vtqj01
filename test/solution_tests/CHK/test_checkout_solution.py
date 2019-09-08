@@ -16,10 +16,10 @@ class TestSum(unittest.TestCase):
         self.assertEqual(checkout_solution.checkout('ABCDABCDA'), 245)
 
     def test_WhenEmptyString(self):
-        self.assertEqual(checkout_solution.checkout(''), -1)
+        self.assertEqual(checkout_solution.checkout(''), 0)
 
     def test_WhenInvalidStringAsInput(self):
-        self.assertEqual(checkout_solution.checkout('AxB'), -1)
+        self.assertEqual(checkout_solution.checkout('BBB'), -1)
 
 if __name__ == '__main__':
     unittest.main()
