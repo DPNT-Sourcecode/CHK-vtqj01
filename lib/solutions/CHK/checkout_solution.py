@@ -79,7 +79,11 @@ def checkout(skus):
                 if key == 'P':
                     itemWithOffer = int(count / 5) if count >= 5 else 0
                     itemWithOutOffer = count % 5
-                    totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * basicPrice + itemWithOutOffer * basicPrice
+                    totalAmountToPay = totalAmountToPay + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
+                if key == 'Q':
+                    itemWithOffer = int(count / 3) if count >= 3 else 0
+                    itemWithOutOffer = count % 3
+                    totalAmountToPay = totalAmountToPay + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
                 if key == 'H':
                     flagForSpecialOffer = False
                     itemWithOutSpecialOffer = 0

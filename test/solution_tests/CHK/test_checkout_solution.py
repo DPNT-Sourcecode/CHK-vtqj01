@@ -36,5 +36,8 @@ class TestSum(unittest.TestCase):
     def test_WhenMultiplesKs(self):
         self.assertEqual(checkout_solution.checkout('KKK'), 230)
 
+    def test_WhenMultiplesPs(self):
+        self.assertEqual(checkout_solution.checkout('PPPPPP'), 250)
+
 if __name__ == '__main__':
     unittest.main()
