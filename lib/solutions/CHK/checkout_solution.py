@@ -44,11 +44,24 @@ def checkout(skus):
                 return -1
 
         for key in countMap.keys():
+            if key == 'E':
+                count = countMap[key]
+                itemWithOfferE = int(count / 2) if count >= 2 else 0
+                if countMap.get('B'):
+                    countMap['B'] = countMap['B'] - itemWithOfferE
+
+            if key == 'N':
+                count = countMap[key]
+                itemWithOfferE = int(count / 2) if count >= 2 else 0
+                if countMap.get('M'):
+                    countMap['M'] = countMap['M'] - itemWithOfferE
+
+        for key in countMap.keys():
             count = countMap[key]
             basicPrice = priceMap[key]['BasicPrice']
             normalOfferPrice = priceMap[key].get('NormalOffer')
             specialOfferPrice = priceMap[key].get('SpecialOffer')
-            if key in ['A', 'B', 'E', 'F', 'H', 'K', 'P', 'Q', 'V']:
+            if key in ['A', 'B', 'F', 'H', 'K', 'P', 'Q', 'V']:
                 if key == 'A':
                     flagForSpecialOffer = False
                     itemWithOutSpecialOffer = 0
@@ -62,12 +75,6 @@ def checkout(skus):
                     itemWithOffer = int(count / 3) if count >= 3 else 0
                     itemWithOutOffer = count % 3
                     totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * specialOfferPrice + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
-                if key == 'E':
-                    count = countMap[key]
-                    itemWithOfferE = int(count / 2) if count >= 2 else 0
-                    totalAmountToPay = totalAmountToPay + count * basicPrice
-                    if countMap.get('B'):
-                        countMap['B'] = countMap['B'] - itemWithOfferE
                 if key in ['B', 'K'] and count > 0:
                     itemWithOffer = int(count / 2) if count >= 2 else 0
                     itemWithOutOffer = count % 2
@@ -111,8 +118,10 @@ def checkout(skus):
                     itemWithOutOffer = count % 2
                     totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * specialOfferPrice + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
             else:
-                totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
+                if countMap[key] > 0:
+                    totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
