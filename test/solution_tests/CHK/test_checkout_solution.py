@@ -25,7 +25,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(checkout_solution.checkout('AAAAA'), 200)
 
     def test_WhenMultiplesEs(self):
-        self.assertEqual(checkout_solution.checkout('EEE'), 150)
+        self.assertEqual(checkout_solution.checkout('EE'), 80)
 
 if __name__ == '__main__':
     unittest.main()
