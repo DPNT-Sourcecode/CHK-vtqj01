@@ -58,9 +58,9 @@ def checkout(skus):
             totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * priceMap.get('B').get('BasicPrice')
         if countOfFs:
             itemWithOffer = int(countOfFs / 3) if countOfFs >= 3 else 0
-            itemWithOutOffer = countOfBs % 3
-            countOfFs = countOfFs - itemWithOffer
-            totalAmountToPay = totalAmountToPay + countOfFs * priceMap.get('F').get('BasicPrice')
+            itemWithOutOffer = countOfFs % 3
+            # countOfFs = countOfFs - itemWithOffer
+            totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * priceMap.get('F').get('BasicPrice') + itemWithOutOffer * priceMap.get('F').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
 
