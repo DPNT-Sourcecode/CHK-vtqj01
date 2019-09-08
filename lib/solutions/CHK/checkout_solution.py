@@ -122,7 +122,7 @@ def checkout(skus):
                     flagForSpecialOffer = False
                     itemWithOutSpecialOffer = 0
                     itemWithSpecialOfferOffer = 0
-                    if count >= 5:
+                    if count >= 3:
                         itemWithSpecialOfferOffer = int(count / 3)
                         itemWithOutSpecialOffer = count % 3
                         flagForSpecialOffer = True
@@ -136,6 +136,7 @@ def checkout(skus):
                     totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
