@@ -3,8 +3,12 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    countOfAs, countOfBs, countOfCs, countOfDs = [0, 0, 0, 0]
+    countOfAs, countOfBs, countOfCs, countOfDs, countOfEs = [0, 0, 0, 0, 0]
     totalAmountToPay = 0
+    # priceMap = {
+    #     'A': {'Offer1':}
+    #
+    # }
     if skus:
         for char in skus:
             if char == 'A':
@@ -15,6 +19,8 @@ def checkout(skus):
                 countOfCs = countOfCs + 1
             elif char == 'D':
                 countOfDs = countOfDs + 1
+            elif char == 'E':
+                countOfEs = countOfEs + 1
             else:
                 return -1
 
@@ -36,6 +42,10 @@ def checkout(skus):
             totalAmountToPay = totalAmountToPay + countOfCs * 20
         if countOfDs:
             totalAmountToPay = totalAmountToPay + countOfDs * 15
+        if countOfEs:
+            itemWithOffer = int(countOfEs / 2) if countOfEs >= 2 else 0
+            itemWithOutOffer = countOfEs % 2
+            totalAmountToPay = totalAmountToPay + itemWithOffer * 30 + itemWithOutOffer * 40
 
     return totalAmountToPay if totalAmountToPay else 0
 
