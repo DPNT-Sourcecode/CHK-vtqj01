@@ -134,7 +134,14 @@ def checkout(skus):
                     totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * specialOfferPrice + itemWithOffer * normalOfferPrice + itemWithOutOffer * basicPrice
             else:
                 if countMap[key] > 0:
-                    totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
+                    if key in ['S', 'T', 'X', 'Y', 'Z']:
+                        groupSpecialLogicCount = groupSpecialLogicCount + 1
+                    else:
+                        totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
+
+        itemWithOffer = int(groupSpecialLogicCount / 3)
+        itemWithOutOffer = groupSpecialLogicCount % 3
+        totalAmountToPay = totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * 17
 
     return totalAmountToPay if totalAmountToPay else 0
 
