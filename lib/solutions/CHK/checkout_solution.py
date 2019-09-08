@@ -135,7 +135,7 @@ def checkout(skus):
             else:
                 if countMap[key] > 0:
                     if key in ['S', 'T', 'X', 'Y', 'Z']:
-                        groupSpecialLogicCount = groupSpecialLogicCount + 1
+                        groupSpecialLogicCount = groupSpecialLogicCount + count
                     else:
                         totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
 
