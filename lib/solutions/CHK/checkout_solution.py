@@ -39,24 +39,22 @@ def checkout(skus):
                  countOfAs = itemWithOutSpecialOffer
             itemWithOffer = int(countOfAs / 3) if countOfAs >= 3 else 0
             itemWithOutOffer = countOfAs % 3
-            # totalAmountToPay = totalAmountToPay + itemWithOutSpecialOffer * 200 + itemWithOffer * 130 + itemWithOutOffer * 50
-            totalAmountToPay = (
-                    totalAmountToPay + itemWithOutSpecialOffer * priceMap.get('A').get('SpecialOffer') +
-                    itemWithOffer * priceMap.get('A').get('NormalOffer') + itemWithOutOffer * priceMap.get('A').get('BasicPrice')
-            )
+            totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * priceMap.get('A').get('SpecialOffer') + \
+                               itemWithOffer * priceMap.get('A').get('NormalOffer') + itemWithOutOffer * priceMap.get('A').get('BasicPrice')
         if countOfBs:
             itemWithOffer = int(countOfBs / 2) if countOfBs >= 2 else 0
             itemWithOutOffer = countOfBs % 2
-            totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * 30
+            totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * priceMap.get('B').get('BasicPrice')
         if countOfCs:
-            totalAmountToPay = totalAmountToPay + countOfCs * 20
+            totalAmountToPay = totalAmountToPay + countOfCs * priceMap.get('C').get('BasicPrice')
         if countOfDs:
-            totalAmountToPay = totalAmountToPay + countOfDs * 15
+            totalAmountToPay = totalAmountToPay + countOfDs * priceMap.get('D').get('BasicPrice')
         if countOfEs:
             itemWithOffer = int(countOfEs / 2) if countOfEs >= 2 else 0
             itemWithOutOffer = countOfEs % 2
-            totalAmountToPay = totalAmountToPay + itemWithOffer * 30 + countOfEs * 40
+            totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('BasicPrice') + countOfEs * priceMap.get('E').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
