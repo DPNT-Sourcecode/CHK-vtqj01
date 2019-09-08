@@ -141,8 +141,20 @@ def checkout(skus):
 
         itemWithOffer = int(groupSpecialLogicCount / 3)
         itemWithOutOffer = groupSpecialLogicCount % 3
+        if itemWithOutOffer == 2:
+            if count.get('X'):
+                if count.get('X') == 2:
+                    price1 = priceMap['X']['BasicPrice']
+                else:
+                    price1 = priceMap['X']['BasicPrice']
+
+                    if any(count.get('S'), count.get('T'), count.get('Y')):
+
+
+
         totalAmountToPay = totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * 17
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
