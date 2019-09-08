@@ -18,11 +18,17 @@ def checkout(skus):
                 return -1
         itemCount = {'A': countOfAs, 'B': countOfBs, 'C': countOfCs, 'D': countOfDs}
         totalAmountToPay = 0
-        for item in itemCount.keys():
-            if item == 'A':
-                if itemCount[itemCount] >
+        # for item in itemCount.keys():
+        #     if item == 'A':
+        #
+        #         if itemCount[itemCount] >= 3:
+        #             pairs =
+        if countOfAs:
+            setOfA = countOfAs / 3:
+            
 
     return -1
+
 
 
 
