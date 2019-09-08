@@ -6,13 +6,13 @@ def checkout(skus):
     countOfAs, countOfBs, countOfCs, countOfDs = [0, 0, 0, 0]
     if skus:
         for char in skus:
-            if skus == 'A':
+            if char == 'A':
                 countOfAs = countOfAs + 1
-            elif skus == 'B':
+            elif char == 'B':
                 countOfBs = countOfBs + 1
-            elif skus == 'C':
+            elif char == 'C':
                 countOfCs = countOfCs + 1
-            elif skus == 'D':
+            elif char == 'D':
                 countOfDs = countOfDs + 1
             else:
                 return -1
@@ -34,5 +34,6 @@ def checkout(skus):
         return totalAmountToPay
 
     return -1
+
 
 
