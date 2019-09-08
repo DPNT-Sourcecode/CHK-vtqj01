@@ -44,42 +44,44 @@ def checkout(skus):
                 return -1
 
         for key in countMap.keys():
-            if key == 'A':
-                countOfAs = countMap[key]
-                flagForSpecialOffer = False
-                itemWithOutSpecialOffer = 0
-                itemWithSpecialOfferOffer = 0
-                if countOfAs >= 5:
-                    itemWithSpecialOfferOffer = int(countOfAs / 5)
-                    itemWithOutSpecialOffer = countOfAs % 5
-                    flagForSpecialOffer = True
-                if flagForSpecialOffer:
-                     countOfAs = itemWithOutSpecialOffer
-                itemWithOffer = int(countOfAs / 3) if countOfAs >= 3 else 0
-                itemWithOutOffer = countOfAs % 3
-                totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * priceMap.get('A').get('SpecialOffer') + \
-                                   itemWithOffer * priceMap.get('A').get('NormalOffer') + itemWithOutOffer * priceMap.get('A').get('BasicPrice')
-            if countOfCs:
-                totalAmountToPay = totalAmountToPay + countOfCs * priceMap.get('C').get('BasicPrice')
-            if countOfDs:
-                totalAmountToPay = totalAmountToPay + countOfDs * priceMap.get('D').get('BasicPrice')
-            if key == 'E':
-                countOfEs = countMap[key]
-                itemWithOfferE = int(countOfEs / 2) if countOfEs >= 2 else 0
-                totalAmountToPay = totalAmountToPay + countOfEs * priceMap.get('E').get('BasicPrice')
-                countOfBs = countOfBs - itemWithOfferE
-            if countOfBs > 0:
-                itemWithOffer = int(countOfBs / 2) if countOfBs >= 2 else 0
-                itemWithOutOffer = countOfBs % 2
-                totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * priceMap.get('B').get('BasicPrice')
-            if key == 'F':
-                countOfFs = countMap[key]
-                itemWithOffer = int(countOfFs / 3) if countOfFs >= 3 else 0
-                itemWithOutOffer = countOfFs % 3
-                # countOfFs = countOfFs - itemWithOffer
-                totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * priceMap.get('F').get('BasicPrice') + itemWithOutOffer * priceMap.get('F').get('BasicPrice')
+            if key in ['A', 'B', 'E', 'F']:
+                if key == 'A':
+                    countOfAs = countMap[key]
+                    flagForSpecialOffer = False
+                    itemWithOutSpecialOffer = 0
+                    itemWithSpecialOfferOffer = 0
+                    if countOfAs >= 5:
+                        itemWithSpecialOfferOffer = int(countOfAs / 5)
+                        itemWithOutSpecialOffer = countOfAs % 5
+                        flagForSpecialOffer = True
+                    if flagForSpecialOffer:
+                         countOfAs = itemWithOutSpecialOffer
+                    itemWithOffer = int(countOfAs / 3) if countOfAs >= 3 else 0
+                    itemWithOutOffer = countOfAs % 3
+                    totalAmountToPay = totalAmountToPay + itemWithSpecialOfferOffer * priceMap.get('A').get('SpecialOffer') + \
+                                       itemWithOffer * priceMap.get('A').get('NormalOffer') + itemWithOutOffer * priceMap.get('A').get('BasicPrice')
+                if key == 'E':
+                    countOfEs = countMap[key]
+                    itemWithOfferE = int(countOfEs / 2) if countOfEs >= 2 else 0
+                    totalAmountToPay = totalAmountToPay + countOfEs * priceMap.get('E').get('BasicPrice')
+                    countOfBs = countOfBs - itemWithOfferE
+                if countOfBs > 0:
+                    itemWithOffer = int(countOfBs / 2) if countOfBs >= 2 else 0
+                    itemWithOutOffer = countOfBs % 2
+                    totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * priceMap.get('B').get('BasicPrice')
+                if key == 'F':
+                    countOfFs = countMap[key]
+                    itemWithOffer = int(countOfFs / 3) if countOfFs >= 3 else 0
+                    itemWithOutOffer = countOfFs % 3
+                    # countOfFs = countOfFs - itemWithOffer
+                    totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * priceMap.get('F').get('BasicPrice') + itemWithOutOffer * priceMap.get('F').get('BasicPrice')
+            else:
+                totalAmountToPay = totalAmountToPay + countMap[key] * priceMap.get(key).get('BasicPrice')
+
+
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
