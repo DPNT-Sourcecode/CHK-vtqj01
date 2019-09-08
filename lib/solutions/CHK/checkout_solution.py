@@ -52,9 +52,15 @@ def checkout(skus):
 
             if key == 'N':
                 count = countMap[key]
-                itemWithOfferE = int(count / 2) if count >= 2 else 0
+                itemWithOfferE = int(count / 3) if count >= 3 else 0
                 if countMap.get('M'):
                     countMap['M'] = countMap['M'] - itemWithOfferE
+
+            if key == 'R':
+                count = countMap[key]
+                itemWithOfferE = int(count / 3) if count >= 3 else 0
+                if countMap.get('Q'):
+                    countMap['Q'] = countMap['Q'] - itemWithOfferE
 
         for key in countMap.keys():
             count = countMap[key]
