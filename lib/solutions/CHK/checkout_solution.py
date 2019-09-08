@@ -11,6 +11,7 @@ def checkout(skus):
         'C': {'BasicPrice': 20},
         'D': {'BasicPrice': 15},
         'E': {'BasicPrice': 40},
+        'F': {'BasicPrice': 10},
     }
     if skus:
         for char in skus:
@@ -55,10 +56,11 @@ def checkout(skus):
             itemWithOffer = int(countOfBs / 2) if countOfBs >= 2 else 0
             itemWithOutOffer = countOfBs % 2
             totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * priceMap.get('B').get('BasicPrice')
+        if countOfFs:
+            itemWithOffer = int(countOfFs / 2) if countOfFs >= 2 else 0
+            countOfFs = countOfFs - itemWithOffer
+            totalAmountToPay = totalAmountToPay + countOfFs * priceMap.get('F').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
-
-
-
 
 

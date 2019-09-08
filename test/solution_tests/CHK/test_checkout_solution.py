@@ -27,5 +27,8 @@ class TestSum(unittest.TestCase):
     def test_WhenMultiplesEs(self):
         self.assertEqual(checkout_solution.checkout('EEB'), 80)
 
+    def test_WhenMultiplesFs(self):
+        self.assertEqual(checkout_solution.checkout('FFFF'), 80)
+
 if __name__ == '__main__':
     unittest.main()
