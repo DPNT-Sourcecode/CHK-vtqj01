@@ -34,6 +34,7 @@ def checkout(skus):
         'Z': {'BasicPrice': 50},
     }
     if skus:
+        countMap = {}
         for char in skus:
             if char == 'A':
                 countOfAs = countOfAs + 1
@@ -83,6 +84,7 @@ def checkout(skus):
             totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * priceMap.get('F').get('BasicPrice') + itemWithOutOffer * priceMap.get('F').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
