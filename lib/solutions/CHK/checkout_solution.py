@@ -10,7 +10,7 @@ priceMap = {
         'H': {'SpecialOffer': 80, 'NormalOffer': 45, 'BasicPrice': 10},
         'I': {'BasicPrice': 35},
         'J': {'BasicPrice': 60},
-        'K': {'NormalOffer': 150, 'BasicPrice': 80},
+        'K': {'NormalOffer': 150, 'BasicPrice': 70},
         'L': {'BasicPrice': 90},
         'M': {'BasicPrice': 15},
         'N': {'BasicPrice': 40},
@@ -18,14 +18,14 @@ priceMap = {
         'P': {'NormalOffer': 200, 'BasicPrice': 50},
         'Q': {'NormalOffer': 80, 'BasicPrice': 30},
         'R': {'BasicPrice': 50},
-        'S': {'BasicPrice': 30},
+        'S': {'BasicPrice': 20},
         'T': {'BasicPrice': 20},
         'U': {'BasicPrice': 40},
         'V': {'SpecialOffer': 130, 'NormalOffer': 90, 'BasicPrice': 50},
         'W': {'BasicPrice': 20},
-        'X': {'BasicPrice': 90},
-        'Y': {'BasicPrice': 10},
-        'Z': {'BasicPrice': 50},
+        'X': {'BasicPrice': 17},
+        'Y': {'BasicPrice': 20},
+        'Z': {'BasicPrice': 21},
 }
 
 # noinspection PyUnusedLocal
@@ -136,5 +136,6 @@ def checkout(skus):
                     totalAmountToPay = totalAmountToPay + countMap[key] * basicPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
