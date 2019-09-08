@@ -147,14 +147,25 @@ def checkout(skus):
                     price1 = priceMap['X']['BasicPrice']
                 else:
                     price1 = priceMap['X']['BasicPrice']
-
                     if any(count.get('S'), count.get('T'), count.get('Y')):
+                        price2 = priceMap['S']['BasicPrice']
+            elif any(count.get('S'), count.get('T'), count.get('Y')):
+                if (
+                        (count.get('S') and count.get('T')) or
+                        (count.get('S') and count.get('Y')) or
+                        (count.get('T') and count.get('Y')) or
+                ):
+                    price1 = priceMap['S']['BasicPrice']
+
+
+
 
 
 
         totalAmountToPay = totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * 17
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
