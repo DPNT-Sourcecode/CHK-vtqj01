@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    countOfAs, countOfBs, countOfCs, countOfDs = 0
+    countOfAs, countOfBs, countOfCs, countOfDs = [0, 0, 0, 0]
     if skus:
         for char in skus:
             if skus == 'A':
@@ -34,10 +34,5 @@ def checkout(skus):
         return totalAmountToPay
 
     return -1
-
-
-
-
-
 
 
