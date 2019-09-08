@@ -146,6 +146,3 @@ def checkout(skus):
     return totalAmountToPay if totalAmountToPay else 0
 
 
-
-
-
