@@ -171,7 +171,12 @@ def checkout(skus):
                 avgPrice = priceMap['Z']['BasicPrice']
 
         elif itemWithOutOffer == 1:
-             avgPrice = countMap.get('X') or countMap.get('S') or countMap.get('T') or countMap.get('Y') or countMap.get('Z')
+            if countMap.get('X'):
+                avgPrice = price2 = priceMap['X']['BasicPrice']
+            elif countMap.get('S') or countMap.get('T') or countMap.get('Y'):
+                avgPrice = price2 = priceMap['S']['BasicPrice']
+            else:
+                avgPrice = price2 = priceMap['Z']['BasicPrice']
 
         totalAmountToPay = totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * avgPrice
 
