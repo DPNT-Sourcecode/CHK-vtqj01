@@ -21,5 +21,8 @@ class TestSum(unittest.TestCase):
     def test_WhenInvalidStringAsInput(self):
         self.assertEqual(checkout_solution.checkout('AxB'), -1)
 
+    def test_Test(self):
+        self.assertEqual(checkout_solution.checkout('AAAA'), 1)
+
 if __name__ == '__main__':
     unittest.main()

@@ -18,11 +18,11 @@ def checkout(skus):
                 return -1
         totalAmountToPay = 0
         if countOfAs:
-            itemWithOffer = countOfAs / 3 if countOfAs >= 3 else 0
+            itemWithOffer = int(countOfAs/3) if countOfAs >= 3 else 0
             itemWithOutOffer = countOfAs % 3
             totalAmountToPay = totalAmountToPay + itemWithOffer * 130 + itemWithOutOffer * 50
         if countOfBs:
-            itemWithOffer = countOfBs / 2 if countOfAs >= 2 else 0
+            itemWithOffer = int(countOfBs/2) if countOfAs >= 2 else 0
             itemWithOutOffer = countOfBs % 2
             totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * 30
         if countOfCs:
