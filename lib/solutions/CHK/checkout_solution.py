@@ -150,6 +150,8 @@ def checkout(skus):
                     price1 = priceMap['X']['BasicPrice']
                     if any([countMap.get('S'), countMap.get('T'), countMap.get('Y')]):
                         price2 = priceMap['S']['BasicPrice']
+                    else:
+                        price2 = priceMap['Z']['BasicPrice']
                     avgPrice = (price1 + price2) / 2
             elif any([countMap.get('S'), countMap.get('T'), countMap.get('Y')]):
                 if (
