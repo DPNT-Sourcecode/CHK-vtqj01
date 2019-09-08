@@ -1,11 +1,5 @@
 
-
-# noinspection PyUnusedLocal
-# skus = unicode string
-def checkout(skus):
-    countOfAs, countOfBs, countOfCs, countOfDs, countOfEs, countOfFs = [0, 0, 0, 0, 0, 0]
-    totalAmountToPay = 0
-    priceMap = {
+priceMap = {
         'A': {'SpecialOffer': 200, 'NormalOffer': 130, 'BasicPrice': 50},
         'B': {'NormalOffer': 45, 'BasicPrice': 30},
         'C': {'BasicPrice': 20},
@@ -32,7 +26,12 @@ def checkout(skus):
         'X': {'BasicPrice': 90},
         'Y': {'BasicPrice': 10},
         'Z': {'BasicPrice': 50},
-    }
+}
+
+# noinspection PyUnusedLocal
+# skus = unicode string
+def checkout(skus):
+    totalAmountToPay = 0
     if skus:
         countMap = {}
         for char in skus:
@@ -64,7 +63,8 @@ def checkout(skus):
                 totalAmountToPay = totalAmountToPay + countOfCs * priceMap.get('C').get('BasicPrice')
             if countOfDs:
                 totalAmountToPay = totalAmountToPay + countOfDs * priceMap.get('D').get('BasicPrice')
-            if countOfEs:
+            if key == 'E':
+                countOfEs = countMap[key]
                 itemWithOfferE = int(countOfEs / 2) if countOfEs >= 2 else 0
                 totalAmountToPay = totalAmountToPay + countOfEs * priceMap.get('E').get('BasicPrice')
                 countOfBs = countOfBs - itemWithOfferE
@@ -72,12 +72,14 @@ def checkout(skus):
                 itemWithOffer = int(countOfBs / 2) if countOfBs >= 2 else 0
                 itemWithOutOffer = countOfBs % 2
                 totalAmountToPay = totalAmountToPay + itemWithOffer * priceMap.get('B').get('NormalOffer') + itemWithOutOffer * priceMap.get('B').get('BasicPrice')
-            if countOfFs:
+            if key == 'F':
+                countOfFs = countMap[key]
                 itemWithOffer = int(countOfFs / 3) if countOfFs >= 3 else 0
                 itemWithOutOffer = countOfFs % 3
                 # countOfFs = countOfFs - itemWithOffer
                 totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * priceMap.get('F').get('BasicPrice') + itemWithOutOffer * priceMap.get('F').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
