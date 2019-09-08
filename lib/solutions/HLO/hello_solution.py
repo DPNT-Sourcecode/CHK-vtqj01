@@ -5,6 +5,3 @@
 def hello(friend_name):
     # return "Hello, World!"
     return "Hello, {name}!".format(name=friend_name)
-
-
-
