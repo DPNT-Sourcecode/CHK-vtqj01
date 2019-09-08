@@ -12,6 +12,26 @@ def checkout(skus):
         'D': {'BasicPrice': 15},
         'E': {'BasicPrice': 40},
         'F': {'BasicPrice': 10},
+        'G': {'BasicPrice': 20},
+        'H': {'BasicPrice': 10},
+        'I': {'BasicPrice': 35},
+        'J': {'BasicPrice': 10},
+        'K': {'BasicPrice': 10},
+        'L': {'BasicPrice': 10},
+        'M': {'BasicPrice': 10},
+        'N': {'BasicPrice': 10},
+        'O': {'BasicPrice': 10},
+        'P': {'BasicPrice': 10},
+        'Q': {'BasicPrice': 10},
+        'R': {'BasicPrice': 10},
+        'S': {'BasicPrice': 10},
+        'T': {'BasicPrice': 10},
+        'U': {'BasicPrice': 10},
+        'V': {'BasicPrice': 10},
+        'W': {'BasicPrice': 10},
+        'X': {'BasicPrice': 10},
+        'Y': {'BasicPrice': 10},
+        'Z': {'BasicPrice': 10},
     }
     if skus:
         for char in skus:
@@ -63,6 +83,7 @@ def checkout(skus):
             totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * priceMap.get('F').get('BasicPrice') + itemWithOutOffer * priceMap.get('F').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 

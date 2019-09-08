@@ -33,7 +33,7 @@ from runner.user_input_action import get_user_input
  
     +------+-------------------------------------------------------------+
     | Step | The usual workflow                                          |
-    +------+-------------------------------------------------------------+
+    +------+-------------------------------------------------------------+deploy
     |  1.  | Run this file.                                              |
     |  2.  | Start a challenge by typing "start".                        |
     |  3.  | Read description from the "challenges" folder               |
@@ -67,3 +67,4 @@ ChallengeSession\
     .with_config(Utils.get_config())\
     .with_action_provider(lambda: get_user_input(sys.argv[1:]))\
     .start()
+
