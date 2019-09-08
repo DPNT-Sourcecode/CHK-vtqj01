@@ -157,7 +157,10 @@ def checkout(skus):
                 if (
                         (countMap.get('S') and countMap.get('T')) or
                         (countMap.get('S') and countMap.get('Y')) or
-                        (countMap.get('T') and countMap.get('Y'))
+                        (countMap.get('T') and countMap.get('Y')) or
+                        (countMap.get('S') > 1) or
+                        (countMap.get('T') > 1) or
+                        (countMap.get('Y') > 1)
                 ):
                     avgPrice = priceMap['S']['BasicPrice']
                 else:
@@ -173,6 +176,7 @@ def checkout(skus):
         totalAmountToPay = totalAmountToPay = totalAmountToPay + itemWithOffer * 45 + itemWithOutOffer * avgPrice
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
