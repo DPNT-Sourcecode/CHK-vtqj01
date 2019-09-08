@@ -43,7 +43,7 @@ class TestSum(unittest.TestCase):
         self.assertEqual(checkout_solution.checkout('QQQQ'), 110)
 
     def test_WhenMultiplesVs(self):
-        self.assertEqual(checkout_solution.checkout('VVVVVV'), 110)
+        self.assertEqual(checkout_solution.checkout('VVVVVVV'), 310)
 
 if __name__ == '__main__':
     unittest.main()
