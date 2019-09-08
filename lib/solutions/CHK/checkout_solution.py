@@ -13,25 +13,25 @@ def checkout(skus):
         'E': {'BasicPrice': 40},
         'F': {'BasicPrice': 10},
         'G': {'BasicPrice': 20},
-        'H': {'BasicPrice': 10},
+        'H': {'SpecialOffer': 80, 'NormalOffer': 45, 'BasicPrice': 10},
         'I': {'BasicPrice': 35},
-        'J': {'BasicPrice': 10},
-        'K': {'BasicPrice': 10},
-        'L': {'BasicPrice': 10},
-        'M': {'BasicPrice': 10},
-        'N': {'BasicPrice': 10},
+        'J': {'BasicPrice': 60},
+        'K': {'BasicPrice': 80},
+        'L': {'BasicPrice': 90},
+        'M': {'BasicPrice': 15},
+        'N': {'BasicPrice': 40},
         'O': {'BasicPrice': 10},
-        'P': {'BasicPrice': 10},
-        'Q': {'BasicPrice': 10},
-        'R': {'BasicPrice': 10},
-        'S': {'BasicPrice': 10},
-        'T': {'BasicPrice': 10},
-        'U': {'BasicPrice': 10},
-        'V': {'BasicPrice': 10},
-        'W': {'BasicPrice': 10},
-        'X': {'BasicPrice': 10},
+        'P': {'BasicPrice': 50},
+        'Q': {'BasicPrice': 30},
+        'R': {'BasicPrice': 50},
+        'S': {'BasicPrice': 30},
+        'T': {'BasicPrice': 20},
+        'U': {'BasicPrice': 40},
+        'V': {'BasicPrice': 50},
+        'W': {'BasicPrice': 20},
+        'X': {'BasicPrice': 90},
         'Y': {'BasicPrice': 10},
-        'Z': {'BasicPrice': 10},
+        'Z': {'BasicPrice': 50},
     }
     if skus:
         for char in skus:
@@ -83,6 +83,7 @@ def checkout(skus):
             totalAmountToPay = totalAmountToPay + itemWithOffer * 2 * priceMap.get('F').get('BasicPrice') + itemWithOutOffer * priceMap.get('F').get('BasicPrice')
 
     return totalAmountToPay if totalAmountToPay else 0
+
 
 
 
